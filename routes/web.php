@@ -1,12 +1,12 @@
 <?php
 
+use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 
-Route::get('/', function () {
-    return view('products.index');
-});
+
+Route::get('/', [PageController::class, 'homepage'])->name('homepage');
 
 Route::resource('products', ProductController::class)->only('index');
 

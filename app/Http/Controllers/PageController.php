@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class PageController extends Controller
 {
     public function homepage()
-    {  $products = Product::all();
+    {  $products = Product::orderBy('created_at', 'DESC')->paginate(12);
 
         return view('products.index', [
             'products' => $products,
